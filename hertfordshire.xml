@@ -138,8 +138,8 @@
 
 	<text>
 
-		<body>
-
+		<body ana="h_area">
+			<fw><supplied resp="#editor">Hertfordshire</supplied></fw>
 			<h:area>
 
 				<head><placeName type="hundred">Hitchin</placeName></head>
