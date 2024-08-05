@@ -12,6 +12,8 @@
 			replace <hi rend="underline"> with appropriate encoding (indicates that the following line is a total)
 
 			check all <p>, if they could be converted into something semantically more valid
+			
+			- AW: have gone through and added where it arises
 
 			check, if h:total refers to a subsection and add appropriate <div> or <h:nc> or <h:ch> or <h:area> etc. 
 
@@ -22,6 +24,7 @@
 			add <div ana="h:ad"> and <h:ad> to administrative personnel
 
 			add <roleName> where necessary, f.e. "Esq", "constable"
+			- AW: have gone through and added where it arises
 
 			check for bracketed entries or entries with more than one taxpayer and encode appropriately
 
@@ -29,7 +32,21 @@
 
 			for example: <h:total><h:h>81</h:h> rec<ex>eive</ex>d <h:tax><h:lbs>iij</h:lbs>li  <h:sh>xvj</h:sh>s</h:tax></h:total>
 
-			check for question marks - they can probably be avoided by using <unclear>
+			check for question marks - they can probably be avoided by using <unclear> AW -sounds good
+			
+			
+			
+			AW new notes
+			
+			- when <h:h> appears within text within <h:total> is making the text unreadable (characters are superimposed). Have moved to end witin <supplied/> tag and where appropriate
+			removed notes saying e.g. written as foure> and out foure back in text 
+			- have added <h:tp> and <h:h> within strikethrough tags 
+			
+			Remaining issue
+			- sometimes £ s sometimes as Arabic numbers and probably always are appearing reversed so that order appears as pence, shillings and pounds
+			- combination of <h:nc> and <h:e ana="nc-empty"> seems to be creating problem that entries cannot be clicked and other such examples through document
+			- I wonder if though the way in which the data in being overwritten on top of itself is arising from the need to fit everything onto a line and hence we need where this
+			is occurring to put in line breaks, so I stopped at Hoddesdon on line 15895 in using supplied tag to move totals to the end
 
 	-->
 
@@ -40,15 +57,15 @@
 			<titleStmt>
 				<title>Tax assessment <placeName type="county">Hertfordshire</placeName></title>
 
-				<editor xml:id="editor">Andrew Wareham</editor>
+				<editor xml:id="editor">Dustin Frazier Wood</editor>
 
-				<principal>Andrew Wareham</principal>
+				<principal>Dustin Frazier Wood</principal>
 
 				<respStmt>
 
 					<resp>encoder</resp>
 
-					<name>Andrew Wareham</name>
+					<name>Dustin Frazier Wood and Jakob Sonnberger</name>
 
 				</respStmt>
 
@@ -142,7 +159,7 @@
 			<fw><supplied resp="#editor">Hertfordshire</supplied></fw>
 			<h:area>
 
-				<head><placeName type="hundred">Hitchin</placeName></head>
+				<head><placeName type="hundred">Hitchin hundred</placeName></head>
 
 				<h:area>
 					<head><placeName type="parish">Hitchin</placeName></head>
@@ -654,7 +671,8 @@
 
 					<div ana="h_ad">
 						<p><persName ana="h_ad">Richard Baldocke }</persName><lb/>
-							<persName ana="h_ad">Nathanel Gotheridge } Constables</persName>
+							<persName ana="h_ad">Nathanel Gotheridge }
+									<roleName>Constables</roleName></persName>
 						</p>
 					</div>
 
@@ -1058,8 +1076,9 @@
 						<h:e><h:tp>Thomas Buckingham</h:tp>
 							<h:h>1</h:h></h:e>
 
-						<h:e ana="h:nc-no-distress"><roleName>Mr</roleName>Turnor <h:h>5</h:h>
-								unten<ex>a</ex>nted noe distres to bee had </h:e>
+						<h:e ana="h:nc-no-distress"><h:tp><roleName>Mr</roleName>Turnor
+									unten<ex>a</ex>nted noe distres to bee had</h:tp><h:h>5</h:h>
+						</h:e>
 
 						<h:e><h:tp>Jerymye Knott</h:tp>
 							<h:h>2</h:h></h:e>
@@ -1085,9 +1104,10 @@
 						<h:e><h:tp><roleName>Wedowe</roleName> Mann</h:tp>
 							<hi rend="underline"><h:h>1</h:h></hi></h:e>
 
-						<h:total><h:h>81</h:h> rec<ex>eive</ex>d <h:tax><h:lbs>iij<hi
+						<h:total><h:h>81</h:h><lb/> rec<ex>eive</ex>d <h:tax><h:lbs>iij<hi
 										rend="superscript">li</hi></h:lbs>
-								<h:sh>xvj<hi rend="superscript">s</hi></h:sh></h:tax></h:total>
+								<h:sh>xvj<hi rend="superscript">s</hi></h:sh>
+							</h:tax></h:total>
 					</h:ch>
 
 					<div ana="h_ad">
@@ -1213,8 +1233,8 @@
 					</h:ch>
 
 					<div ana="h_ad">
-						<p><persName ana="h_ad">Edward
-								Greene<roleName>Constable</roleName></persName></p>
+						<p><persName ana="h_ad">Edward Greene
+								<roleName>Constable</roleName></persName></p>
 					</div>
 
 				</h:area>
@@ -1392,10 +1412,8 @@
 						<h:e><h:tp>Dawes</h:tp> at St Tibbs the House <lb/>lett to A poore man payes
 							nothing to Church or Poore <h:h>1</h:h></h:e>
 
-						<h:total>
-							<h:h>returne 5 hearths</h:h> where noe distresse cann bee<lb/>
-							had</h:total>
-
+						<h:e><h:tp>returne 5 hearths where noe distresse cann bee<lb/> had</h:tp>
+						</h:e>
 					</h:nc-poor>
 
 					<div ana="h_ad">
@@ -1445,8 +1463,8 @@
 					</h:ch>
 
 					<div ana="h_ad">
-						<p><persName ana="h_ad">John
-							Foster<roleName>Constable</roleName></persName></p>
+						<p><persName ana="h_ad">John Foster
+								<roleName>Constable</roleName></persName></p>
 					</div>
 
 				</h:area>
@@ -1513,8 +1531,8 @@
 					</h:ch>
 
 					<div ana="h_ad">
-						<p><persName ana="h_ad">Rowland
-								Balard<roleName>Constable</roleName></persName></p>
+						<p><persName ana="h_ad">Rowland Balard
+								<roleName>Constable</roleName></persName></p>
 					</div>
 
 				</h:area>
@@ -1963,16 +1981,17 @@
 					<h:nc-empty>
 
 						<h:e ana="No-goods-to-take"><h:tp>Tho. Crawley</h:tp> two empty tenements
-								w<ex>i</ex>th <h:h>2</h:h><note>written as 'two'</note> hearths noe
-							distress to be had</h:e>
+								w<ex>i</ex>th hearths noe distress to be
+								had<h:h>2</h:h><note>written as 'two'</note>
+						</h:e>
 
 					</h:nc-empty>
 
 					<h:nc>
 
-						<h:e><h:tp>Reuben Browne</h:tp>
-							<h:h>2</h:h><note>written as 'two'</note> other Chymnies, their hearths
-							taken upp</h:e>
+						<h:e><h:tp>Reuben Browne</h:tp> other Chymnies, their hearths taken upp
+								<h:h>2</h:h><note>written as 'two'</note>
+						</h:e>
 
 					</h:nc>
 
@@ -2191,6 +2210,7 @@
 
 						<h:total>
 							<supplied resp="editor"><h:h>191</h:h></supplied>
+							<lb/>
 							<h:tax><h:lbs>£9</h:lbs>
 								<h:sh>11s</h:sh></h:tax>
 						</h:total>
@@ -2265,6 +2285,7 @@
 
 						<h:total> Sum tot<ex>al</ex>
 							<h:h>74</h:h>
+							<lb/>
 							<h:tax><h:lbs>£3</h:lbs>
 								<h:sh>13<supplied resp="editor">s</supplied></h:sh>
 								<h:den>0</h:den></h:tax>
@@ -2393,7 +2414,8 @@
 						<h:e><h:tp>James Belam</h:tp>
 							<h:h>3</h:h></h:e>
 
-						<h:total>in all <h:tax><h:lbs>one pound</h:lbs>
+						<h:total>in all<h:tax>
+								<h:lbs>one pound</h:lbs>
 								<h:sh>seaventeene shillings</h:sh></h:tax>
 						</h:total>
 
@@ -3713,7 +3735,7 @@
 						<h:e><h:tp><roleName>Mist.</roleName> Reve</h:tp>
 							<h:h>7</h:h></h:e>
 
-						<h:e><h:tp><roleName>Mr</roleName> Wallis</h:tp> 4 whearof one is downe
+						<h:e><h:tp><roleName>Mr</roleName> Wallis</h:tp> 4 whear of one is downe
 								<h:h>3</h:h></h:e>
 
 						<h:e><h:tp><roleName>Mr</roleName> Gorsuch</h:tp>
@@ -3829,7 +3851,7 @@
 						<h:e><h:tp>John Turner</h:tp>
 							<h:h>1</h:h></h:e>
 
-						<h:e><h:tp>Sam. Ingerson</h:tp> two whareofone is doune <h:h>1</h:h></h:e>
+						<h:e><h:tp>Sam. Ingerson</h:tp> two whare of one is doune <h:h>1</h:h></h:e>
 
 						<h:e><h:tp>Sam. Monke</h:tp>
 							<h:h>1</h:h></h:e>
@@ -4214,8 +4236,8 @@
 
 					</h:ch>
 
-					<h:total> Sum<ex>m</ex>e of Chimnyes <h:h>252</h:h> of money
-								<h:tax><h:lbs>£12</h:lbs>
+					<h:total> Sum<ex>m</ex>e of Chimnyes <h:h>252</h:h> of money <lb/>
+						<h:tax><h:lbs>£12</h:lbs>
 							<h:sh>12 <hi rend="superscript">s</hi></h:sh>
 							<h:den>00<hi rend="superscript">d</hi></h:den></h:tax>
 					</h:total>
@@ -4334,7 +4356,7 @@
 
 					</h:nc-empty>
 
-					<h:total>8</h:total>
+					<h:total><h:h>8</h:h></h:total>
 
 					<h:total> The number I rec<ex>eive</ex>d money for is <h:h>63</h:h>
 					</h:total>
@@ -4532,8 +4554,9 @@
 						<h:e><h:tp>John Currall</h:tp>
 							<h:h>1</h:h></h:e>
 
-						<h:e ana="nc-no-distress"><h:tp>John Hills</h:tp> hath <h:h>1</h:h>
-							<note>written as 'one'</note> and noe distres to be had</h:e>
+						<h:e ana="nc-no-distress"><h:tp>John Hills</h:tp> hath and noe distres to be
+								had<h:h>1</h:h>
+							<note>written as 'one'</note></h:e>
 
 						<h:e><h:tp>Thomas Weelsh</h:tp>
 							<h:h>1</h:h></h:e>
@@ -5049,11 +5072,11 @@
 						<h:e><h:tp>Richard Cann <genName>Jun<ex>ior</ex></genName></h:tp>
 							<h:h>1</h:h></h:e>
 
-						<h:e><h:tp>William Risdale</h:tp> retorned at <h:h>3</h:h> Cimnies gone
-							before Mich<ex>aelmas</ex> last</h:e>
+						<h:e><h:tp>William Risdale</h:tp> retorned at 3 Cimnies gone before
+								Mich<ex>aelmas</ex> last<supplied><h:h>3</h:h></supplied></h:e>
 
-						<h:e><h:tp>Hugh Hawkins</h:tp> retorned at <h:h>5</h:h> Chimnies whereof one
-							of them is but an oven</h:e>
+						<h:e><h:tp>Hugh Hawkins</h:tp> retorned at 5 Chimnies whereof one of them is
+							but an oven <supplied><h:h>5</h:h></supplied></h:e>
 
 					</h:ch>
 
@@ -5356,8 +5379,8 @@
 								<h:h>2</h:h> Chimnys there is no distress</h:e>
 
 						<h:e ana="h:nc-no-distress"><h:tp>Thomas Lawrance</h:tp> hath paid and did
-							subscribe but one Chimny but uppon examination wee have found
-								<h:h>2</h:h> Chimnies and hee refuseth to pay for one.</h:e>
+							subscribe but one Chimny but uppon examination wee have found 2 Chimnies
+							and hee refuseth to pay for one.<supplied><h:h>2</h:h></supplied></h:e>
 
 					</h:ch>
 
@@ -5534,11 +5557,12 @@
 					<h:nc-nodistress>
 
 						<h:e ana="h:nc-no-distress">
-							<h:tp>Wm. Browne</h:tp> returned at <h:h>2</h:h> Chimnies; gone out of
-							the towne and there is no distress</h:e>
+							<h:tp>Wm. Browne</h:tp> returned at 2 Chimnies; gone out of the towne
+							and there is no distress <supplied><h:h>2</h:h></supplied></h:e>
 
-						<h:e ana="h:nc-no-distress"><h:tp>Wm. Hale</h:tp> retorned at <h:h>1</h:h>
-							Chimny gone out of the towne and there is no distress.</h:e>
+						<h:e ana="h:nc-no-distress"><h:tp>Wm. Hale</h:tp> retorned at 1 Chimny gone
+							out of the towne and there is no distress.
+								<supplied><h:h>1</h:h></supplied></h:e>
 
 					</h:nc-nodistress>
 
@@ -5724,8 +5748,9 @@
 						<h:e><h:tp>Jo. Barnes</h:tp>
 							<h:h>1</h:h></h:e>
 
-						<h:e><h:tp>Richard Grigory</h:tp> retorned at <h:h>3</h:h> Chimnies whereof
-							one of them is fallen down since the last paym<ex>en</ex>t</h:e>
+						<h:e><h:tp>Richard Grigory</h:tp> retorned at 3 Chimnies whereof one of them
+							is fallen down since the last paym<ex>en</ex>t
+								<supplied><h:h>3</h:h></supplied></h:e>
 
 					</h:ch>
 
@@ -5768,9 +5793,9 @@
 
 					<h:nc ana="nc-poor">
 
-						<h:e ana="nc-poor"><h:tp>John Starkes</h:tp>
-							<h:h>1</h:h> this to bee dischargd hee neither paying to church nor
-							poore</h:e>
+						<h:e ana="nc-poor"><h:tp>John Starkes</h:tp> 1 this to bee dischargd hee
+							neither paying to church nor poore
+							<supplied><h:h>1</h:h></supplied></h:e>
 
 					</h:nc>
 
@@ -6051,8 +6076,8 @@
 					<h:nc-nodistress>
 
 						<h:e ana="h:nc-no-distress"><h:tp><h:h>Widdow</h:h> Cock</h:tp> retorned at
-								<h:h>1</h:h> Chimny Shee is gone ever since the last payment and
-							they can come at no distress.</h:e>
+							1 Chimny Shee is gone ever since the last payment and they can come at
+							no distress. <supplied><h:h>1</h:h></supplied></h:e>
 
 					</h:nc-nodistress>
 
@@ -8031,35 +8056,35 @@
 
 					<h:ch>
 						<h:e><roleName>Mr</roleName><h:tp>Tho. Cole</h:tp>
-							<roleName>Gent</roleName> for }<lb/>
-							<h:h>13</h:h> hearths in his mansion house } <h:tax><h:lbs>00</h:lbs>
+							<roleName>Gent</roleName> for }<lb/> 13 hearths in his mansion house }
+									<h:tax><h:lbs>00</h:lbs>
 								<h:sh>13</h:sh>
-								<h:den>00</h:den></h:tax></h:e>
+								<h:den>00</h:den></h:tax><supplied><h:h>13</h:h></supplied>></h:e>
 
 						<h:e><h:tp><roleName>Mr</roleName><persName>Luke Saunders</persName>
-								<roleName>Rectour</roleName></h:tp>, }<lb/> for <h:h>4</h:h> fire
-							hearths in the Parsonage house } <h:tax><h:lbs>00</h:lbs>
+								<roleName>Rectour</roleName></h:tp>, }<lb/> for 4 fire hearths in
+							the Parsonage house } <h:tax><h:lbs>00</h:lbs>
 								<h:sh>04</h:sh>
-								<h:den>00</h:den></h:tax></h:e>
+								<h:den>00</h:den></h:tax><supplied><h:h>4</h:h></supplied></h:e>
 
-						<h:e><h:tp>Richard Freeman</h:tp> for <h:h>3</h:h> fire- }<lb/> -hearths in
-							his dwelling house } <h:tax><h:lbs>00</h:lbs>
+						<h:e><h:tp>Richard Freeman</h:tp> for 3 fire- }<lb/> -hearths in his
+							dwelling house } <h:tax><h:lbs>00</h:lbs>
 								<h:sh>03</h:sh>
-								<h:den>00</h:den></h:tax></h:e>
+								<h:den>00</h:den></h:tax><supplied><h:h>3</h:h></supplied></h:e>
 
 						<h:e>R<ex>eceive</ex>d of him for <h:h>6</h:h> fire-hearths in the }<lb/>
 							farme-house over against the Church now } 00 06 00<lb/> in his
 							occupation. }</h:e>
 
-						<h:e><h:tp>John Paine</h:tp> for <h:h>9</h:h> fire-hearths }<lb/> in the
-							Grainge-house } <h:tax><h:lbs>00</h:lbs>
+						<h:e><h:tp>John Paine</h:tp> for 9 fire-hearths }<lb/> in the Grainge-house
+							} <h:tax><h:lbs>00</h:lbs>
 								<h:sh>09</h:sh>
-								<h:den>00</h:den></h:tax></h:e>
+								<h:den>00</h:den></h:tax><supplied><h:h>9</h:h></supplied></h:e>
 
-						<h:e><h:tp>John Cradock</h:tp> for <h:h>1</h:h> fire-hearth }<lb/> in the
-							Mill-house } <h:tax><h:lbs>00</h:lbs>
+						<h:e><h:tp>John Cradock</h:tp> for 1 fire-hearth }<lb/> in the Mill-house }
+									<h:tax><h:lbs>00</h:lbs>
 								<h:sh>01</h:sh>
-								<h:den>00</h:den></h:tax></h:e>
+								<h:den>00</h:den></h:tax><h:h>1</h:h></h:e>
 					</h:ch>
 
 					<div ana="h_ad">
@@ -8314,7 +8339,7 @@
 
 			<h:area>
 
-				<head><placeName type="hundred">EDWINSTOWE HUNDRED</placeName></head>
+				<head><placeName type="hundred">Edwinstowe hundred</placeName></head>
 
 
 
@@ -8990,11 +9015,11 @@
 
 					<h:nc>
 
-						<h:e ana="nc-no-distress">First wee Returne <h:h>1</h:h><note>written as
-								'one'</note> fier hearth w<ex>hi</ex>ch the house <lb/> stand emptie
-							and the house and Chemney allmost <lb/> Readie to fall downe and that
-								<h:tp>Frances Twinn</h:tp> of the <lb/> p<ex>ar</ex>ish oeth it or
-							former to it</h:e>
+						<h:e ana="nc-no-distress">First wee Returne one fier hearth w<ex>hi</ex>ch
+							the house <lb/> stand emptie and the house and Chemney allmost <lb/>
+							Readie to fall downe and that <h:tp>Frances Twinn</h:tp> of the <lb/>
+								p<ex>ar</ex>ish oeth it or former to it
+								<supplied><h:h>1</h:h></supplied></h:e>
 
 						<h:e ana="nc-no-distress">And allso wee Returne a nother house that stand
 							<lb/> emptie and noe distresse can be had and that <h:tp>William <lb/>
@@ -9393,14 +9418,14 @@
 					<h:nc ana="nc-no-distress">
 
 						<h:e ana="nc-empty"><h:tp>William Foster</h:tp> goun out of towne }<lb/> the
-							hous standing emtie and } <h:h>2</h:h>
-							<lb/> no destres to be tacken }</h:e>
+							hous standing emtie and } <lb/> no destres to be tacken }
+							<h:h>2</h:h></h:e>
 
 						<h:e ana="nc-no-distress"><h:tp>Thomas Fepes</h:tp> one hath puled } <lb/>
-							downe } 1</h:e>
+							downe } <h:h>1</h:h></h:e>
 
 						<h:e ana="nc-poor"><h:tp>John Ierland</h:tp> doth not paye }<lb/> to Church
-							nor poure nor } <h:h>2</h:h><lb/> no destres to be tacken }</h:e>
+							nor poure nor } <lb/> no destres to be tacken }<h:h>2</h:h></h:e>
 
 					</h:nc>
 
@@ -10338,8 +10363,8 @@
 					<h:nc ana="nc-no-distress">
 
 						<h:e ana="nc-no-distress"><h:tp><roleName>Mr</roleName>. Frogmorton</h:tp>
-							<h:h>5</h:h><note>written as 'five'</note> Chim<ex>n</ex>eys <lb/> but
-							noe distrese Can be Received</h:e>
+							five Chim<ex>n</ex>eys <lb/> but noe distrese Can be Received
+									<supplied><h:h>5</h:h></supplied></h:e>
 					</h:nc>
 
 				</h:area>
@@ -10518,12 +10543,11 @@
 
 					<h:nc ana="nc-no-distress">
 
-						<h:e><h:tp>Edward Aleling</h:tp>
-							<h:h>1</h:h><note>written as 'one'</note> fire harth but noe distresse
-							Can bee had</h:e>
+						<h:e><h:tp>Edward Aleling</h:tp> one fire harth but noe distresse Can bee
+							had <supplied><h:h>1</h:h></supplied></h:e>
 
-						<h:e><h:tp>Simeon ?Darney of John Moole</h:tp>
-							<h:h>1</h:h> for tow Chimnies no distresse can be had</h:e>
+						<h:e><h:tp>Simeon ?Darney of John Moole</h:tp> 1 for tow Chimnies no
+							distresse can be had <supplied><h:h>1</h:h></supplied></h:e>
 					</h:nc>
 
 				</h:area>
@@ -10771,8 +10795,8 @@
 					<h:nc ana="nc-empty">
 						<h:e><h:tp>Mr. William Clarke</h:tp> dyed in August 1662 the house stud emty
 							<lb/> Ever Since and ther <lb/> is noe distres to be had<lb/> and ther
-							is <h:h>6</h:h><note>written as 'Six'</note> Chimnis <lb/> wanting one
-							alleadged <lb/> to bee discharged <lb/></h:e>
+							is Six Chimnis <lb/> wanting one alleadged <lb/> to bee discharged
+									<lb/><supplied><h:h>6</h:h></supplied></h:e>
 					</h:nc>
 
 					<div ana="h_ad">
@@ -11053,7 +11077,7 @@
 
 			<h:area>
 
-				<head><placeName type="hundred">BRAUGHING HUNDRED</placeName></head>
+				<head><placeName type="hundred">Braughing hundred</placeName></head>
 
 				<h:area>
 					<head><placeName type="parish"><choice>
@@ -11612,7 +11636,7 @@
 							<h:h>3</h:h></h:e>
 
 						<h:e><h:tp>Mathew Harwood</h:tp> ret }<lb/> for 2 now 1 of <supplied
-								resp="editor">the</supplied>m held } <h:h>1</h:h><lb/> by <h:tp>Tho.
+								resp="editor">the</supplied>m held } 1 <lb/> by <h:tp>Tho.
 								Langley</h:tp> } <h:h>1</h:h></h:e>
 
 						<h:total>
@@ -12111,364 +12135,361 @@
 						<h:total>
 							<h:h>155</h:h></h:total>
 					</h:ch>
-
-					<h:area>
-						<head><placeName type="parish">Thundridge</placeName></head>
-
-						<p><h:taxationDate when="1663-06-10">10 Jun 1663</h:taxationDate></p>
-
-						<h:ch>
-							<h:e><h:tp>Edward Gardiner <roleName>Esquire</roleName></h:tp>
-								<h:h>16</h:h></h:e>
-
-							<h:e><h:tp>Francis Tyler</h:tp>
-								<h:h>3</h:h></h:e>
-
-							<h:e><h:tp>Peter Prest &amp; George</h:tp>
-								<h:h>8</h:h></h:e>
-
-							<h:e><h:tp>Richard Ward &amp; Francis</h:tp>
-								<h:h>4</h:h></h:e>
-
-							<h:e><h:tp>Edward Kent</h:tp>
-								<h:h>5</h:h></h:e>
-
-							<h:e><h:tp>John Allyn</h:tp>
-								<h:h>1</h:h></h:e>
-
-							<h:e><h:tp>Richard Adames</h:tp>
-								<h:h>2</h:h></h:e>
-
-							<h:e><h:tp>Richard Wrenn</h:tp>
-								<h:h>2</h:h></h:e>
-
-							<h:e><h:tp>James Adames</h:tp>
-								<h:h>1</h:h></h:e>
-
-							<h:e><h:tp>Willm. Hill</h:tp>
-								<h:h>2</h:h></h:e>
-
-							<h:e><h:tp>John Page</h:tp>
-								<h:h>1</h:h></h:e>
-
-							<h:e><h:tp>Barnabe Brookbancke</h:tp>
-								<h:h>1</h:h></h:e>
-
-							<h:e><h:tp>John Wrenn</h:tp>
-								<h:h>1</h:h></h:e>
-
-							<h:e><h:tp>Edward Thorowgood</h:tp>
-								<h:h>1</h:h></h:e>
-
-							<h:e><h:tp>Willm. Cornney</h:tp>
-								<h:h>1</h:h></h:e>
-
-							<h:e><h:tp>John Brace</h:tp>
-								<h:h>1</h:h></h:e>
-
-							<h:e><h:tp>Nathaniell Bydes</h:tp>
-								<h:h>3</h:h></h:e>
-
-							<h:e><h:tp>Willm. Bush</h:tp>
-								<h:h>1</h:h></h:e>
-
-							<h:e><h:tp>Willm. Bennett</h:tp>
-								<h:h>3</h:h></h:e>
-
-							<h:e><h:tp>John Harris</h:tp>
-								<h:h>2</h:h></h:e>
-
-							<h:e><h:tp>Mary Lawrence <roleName>widd.</roleName></h:tp>
-								<h:h>3</h:h></h:e>
-
-							<h:e><h:tp>Robert Lion</h:tp>
-								<h:h>1</h:h></h:e>
-
-							<h:e><h:tp>Thomas Kinge</h:tp>
-								<h:h>1</h:h></h:e>
-
-							<h:e><h:tp>Thomas Haldinge</h:tp>
-								<h:h>1</h:h></h:e>
-
-							<h:e><h:tp>John Person</h:tp>
-								<h:h>3</h:h></h:e>
-
-							<h:e><h:tp>John Carter</h:tp>
-								<h:h>1</h:h></h:e>
-
-							<h:e><h:tp>Richard Patton</h:tp>
-								<h:h>1</h:h></h:e>
-
-							<h:e><h:tp>James Fabin</h:tp>
-								<h:h>1</h:h></h:e>
-
-							<h:e><h:tp>Richard Reynolds</h:tp>
-								<h:h>2</h:h></h:e>
-
-							<h:e><h:tp>Thomas Payne</h:tp>
-								<h:h>4</h:h></h:e>
-
-							<pb n="dorse"/>
-
-							<h:e><h:tp>Edward Archer</h:tp>
-								<h:h>3</h:h></h:e>
-
-							<h:e><h:tp>Michaell Watts</h:tp>
-								<h:h>1</h:h></h:e>
-
-							<h:e><h:tp>Robert Wiges</h:tp>
-								<h:h>2</h:h></h:e>
-
-							<h:e><h:tp>John Corlis</h:tp>
-								<h:h>3</h:h></h:e>
-
-							<h:e><h:tp>Manuell Walton</h:tp>
-								<h:h>1</h:h></h:e>
-
-							<h:e><h:tp>John Hilles</h:tp>
-								<h:h>1</h:h></h:e>
-
-							<h:e><h:tp>The Widd. Symes</h:tp>
-								<h:h>4</h:h></h:e>
-
-							<h:e><h:tp>George Kilbe</h:tp>
-								<h:h>3</h:h></h:e>
-
-							<h:e><h:tp>John Walker</h:tp>
-								<h:h>2</h:h></h:e>
-
-							<h:e><h:tp>Abraham Pond</h:tp>
-								<h:h>7</h:h></h:e>
-
-							<h:e><h:tp>Mary Meadcalfe <roleName>widd.</roleName></h:tp>
-								<h:h>2</h:h></h:e>
-
-							<h:e><h:tp>John Odall</h:tp>
-								<h:h>4</h:h></h:e>
-
-							<h:e><h:tp>Christopher Deane for his other house</h:tp>
-								<h:h>3</h:h></h:e>
-
-							<h:e><h:tp>Samuell Siggens</h:tp>
-								<h:h>1</h:h></h:e>
-
-							<h:e><h:tp>Adam Smithson</h:tp>
-								<h:h>6</h:h></h:e>
-
-							<h:e><h:tp>Richard Honour</h:tp>
-								<h:h>2</h:h></h:e>
-
-							<h:e><h:tp>Thomas Clarke</h:tp>
-								<h:h>2</h:h></h:e>
-
-							<h:e><h:tp>Thomas Harlow</h:tp>
-								<h:h>3</h:h></h:e>
-
-							<h:e><h:tp>Thomas Hutchin</h:tp>
-								<h:h>1</h:h></h:e>
-
-							<h:e><h:tp>William Waltom</h:tp>
-								<h:h>1</h:h></h:e>
-
-							<h:e><h:tp>The <roleName>Widdow</roleName> Page</h:tp>
-								<h:h>1</h:h></h:e>
-
-							<h:e><h:tp>John Daniell</h:tp>
-								<h:h>2</h:h></h:e>
-
-							<h:e><h:tp>Anastasius Lightfoot</h:tp>
-								<h:h>3</h:h></h:e>
-
-							<h:total>The true Number of hearths <h:h>135</h:h> hearths but bate
-								seven &amp; their remains 128 hearths</h:total>
-
-							<h:total>The su<ex>m</ex>me of money comes to <h:tax><h:lbs>£6</h:lbs>
-									<h:sh>8<hi rend="superscript">s</hi></h:sh>
-									<h:den>0<hi rend="superscript">d</hi></h:den></h:tax></h:total>
-						</h:ch>
-
-						<h:nc ana="nc-no-distress">
-
-							<h:e ana="nc-no-distress">As for <h:tp>Abraham Pond</h:tp> is gone out
-								of the house and theire is noe distress to be had for the
-									<h:h>7</h:h><note>written as 'seven'</note> hearths</h:e>
-						</h:nc>
-
-						<div ana="h_ad">
-							<p><persName ana="h_ad">Thomas Clarke</persName>
-								<roleName>Constable of Thundridge</roleName></p>
-						</div>
-
-					</h:area>
-
 				</h:area>
 
 				<h:area>
-					<head><placeName type="parish">Ware Upland</placeName></head>
+					<head><placeName type="parish">Thundridge</placeName></head>
 
-					<p><h:taxationDate when="1663-03-25"><supplied resp="editor">Lady Day
-								1663</supplied></h:taxationDate></p>
+					<p><h:taxationDate when="1663-06-10">10 Jun 1663</h:taxationDate></p>
 
 					<h:ch>
-						<h:e><h:tp><roleName>S<ex>i</ex>r</roleName> Henneage Fetherstone</h:tp>
+						<h:e><h:tp>Edward Gardiner <roleName>Esquire</roleName></h:tp>
 							<h:h>16</h:h></h:e>
 
-						<h:e><h:tp><roleName>S<ex>i</ex>r</roleName> John Buck</h:tp>
-							<h:h>14</h:h></h:e>
-
-						<h:e><h:tp>John Hallden</h:tp>
-							<h:h>5</h:h></h:e>
-
-						<h:e><h:tp>Georg Halden</h:tp>
-							<h:h>5</h:h></h:e>
-
-						<h:e><h:tp>John Hale</h:tp>
-							<h:h>1</h:h></h:e>
-
-						<h:e><h:tp>Joseph Isack</h:tp>
-							<h:h>1</h:h></h:e>
-
-						<h:e><h:tp>John Elliott</h:tp>
-							<h:h>2</h:h></h:e>
-
-						<h:e><h:tp>Sarah Rockell</h:tp>
-							<h:h>10</h:h></h:e>
-
-						<h:e><h:tp>John Franklin</h:tp>
+						<h:e><h:tp>Francis Tyler</h:tp>
 							<h:h>3</h:h></h:e>
 
-						<h:e><h:tp>John Lilly</h:tp>
-							<h:h>2</h:h></h:e>
+						<h:e><h:tp>Peter Prest &amp; George</h:tp>
+							<h:h>8</h:h></h:e>
 
-						<h:e><h:tp>William Randall</h:tp>
-							<h:h>2</h:h></h:e>
-
-						<h:e><h:tp>Thomas Roberts</h:tp>
-							<h:h>3</h:h></h:e>
-
-						<h:e><h:tp>John Mills</h:tp>
-							<h:h>2</h:h></h:e>
-
-						<h:e><h:tp>Robert Clemonson</h:tp>
-							<h:h>2</h:h></h:e>
-
-						<h:e><h:tp>Mary Godfrey</h:tp>
-							<h:h>2</h:h></h:e>
-
-						<h:e><h:tp>Richard Godfrey</h:tp>
-							<h:h>2</h:h></h:e>
-
-						<h:e><h:tp>?Dine Massham</h:tp>
-							<h:h>2</h:h></h:e>
-
-						<h:e><h:tp>John Andrewes</h:tp>
-							<h:h>6</h:h></h:e>
-
-						<h:e><h:tp>Thomas Skingle</h:tp>
-							<h:h>2</h:h></h:e>
-
-						<h:e><h:tp>Robert Wrenn</h:tp>
-							<h:h>1</h:h></h:e>
-
-						<h:e><h:tp>George Stratford</h:tp>
+						<h:e><h:tp>Richard Ward &amp; Francis</h:tp>
 							<h:h>4</h:h></h:e>
 
-						<h:e><h:tp>William Porter</h:tp>
+						<h:e><h:tp>Edward Kent</h:tp>
+							<h:h>5</h:h></h:e>
+
+						<h:e><h:tp>John Allyn</h:tp>
+							<h:h>1</h:h></h:e>
+
+						<h:e><h:tp>Richard Adames</h:tp>
 							<h:h>2</h:h></h:e>
 
-						<h:e><h:tp>John Heard</h:tp>
+						<h:e><h:tp>Richard Wrenn</h:tp>
 							<h:h>2</h:h></h:e>
 
-						<h:e><h:tp>John Law</h:tp>
+						<h:e><h:tp>James Adames</h:tp>
+							<h:h>1</h:h></h:e>
+
+						<h:e><h:tp>Willm. Hill</h:tp>
+							<h:h>2</h:h></h:e>
+
+						<h:e><h:tp>John Page</h:tp>
+							<h:h>1</h:h></h:e>
+
+						<h:e><h:tp>Barnabe Brookbancke</h:tp>
+							<h:h>1</h:h></h:e>
+
+						<h:e><h:tp>John Wrenn</h:tp>
+							<h:h>1</h:h></h:e>
+
+						<h:e><h:tp>Edward Thorowgood</h:tp>
+							<h:h>1</h:h></h:e>
+
+						<h:e><h:tp>Willm. Cornney</h:tp>
+							<h:h>1</h:h></h:e>
+
+						<h:e><h:tp>John Brace</h:tp>
+							<h:h>1</h:h></h:e>
+
+						<h:e><h:tp>Nathaniell Bydes</h:tp>
 							<h:h>3</h:h></h:e>
 
-						<h:e><h:tp>Henry Budder</h:tp>
+						<h:e><h:tp>Willm. Bush</h:tp>
+							<h:h>1</h:h></h:e>
+
+						<h:e><h:tp>Willm. Bennett</h:tp>
 							<h:h>3</h:h></h:e>
 
-						<h:e><h:tp>Mathew Finkell</h:tp>
+						<h:e><h:tp>John Harris</h:tp>
+							<h:h>2</h:h></h:e>
+
+						<h:e><h:tp>Mary Lawrence <roleName>widd.</roleName></h:tp>
+							<h:h>3</h:h></h:e>
+
+						<h:e><h:tp>Robert Lion</h:tp>
+							<h:h>1</h:h></h:e>
+
+						<h:e><h:tp>Thomas Kinge</h:tp>
+							<h:h>1</h:h></h:e>
+
+						<h:e><h:tp>Thomas Haldinge</h:tp>
+							<h:h>1</h:h></h:e>
+
+						<h:e><h:tp>John Person</h:tp>
+							<h:h>3</h:h></h:e>
+
+						<h:e><h:tp>John Carter</h:tp>
+							<h:h>1</h:h></h:e>
+
+						<h:e><h:tp>Richard Patton</h:tp>
+							<h:h>1</h:h></h:e>
+
+						<h:e><h:tp>James Fabin</h:tp>
+							<h:h>1</h:h></h:e>
+
+						<h:e><h:tp>Richard Reynolds</h:tp>
+							<h:h>2</h:h></h:e>
+
+						<h:e><h:tp>Thomas Payne</h:tp>
 							<h:h>4</h:h></h:e>
 
-						<h:e><h:tp>William Poole</h:tp>
+						<pb n="dorse"/>
+
+						<h:e><h:tp>Edward Archer</h:tp>
+							<h:h>3</h:h></h:e>
+
+						<h:e><h:tp>Michaell Watts</h:tp>
+							<h:h>1</h:h></h:e>
+
+						<h:e><h:tp>Robert Wiges</h:tp>
+							<h:h>2</h:h></h:e>
+
+						<h:e><h:tp>John Corlis</h:tp>
+							<h:h>3</h:h></h:e>
+
+						<h:e><h:tp>Manuell Walton</h:tp>
+							<h:h>1</h:h></h:e>
+
+						<h:e><h:tp>John Hilles</h:tp>
+							<h:h>1</h:h></h:e>
+
+						<h:e><h:tp>The Widd. Symes</h:tp>
+							<h:h>4</h:h></h:e>
+
+						<h:e><h:tp>George Kilbe</h:tp>
+							<h:h>3</h:h></h:e>
+
+						<h:e><h:tp>John Walker</h:tp>
+							<h:h>2</h:h></h:e>
+
+						<h:e><h:tp>Abraham Pond</h:tp>
 							<h:h>7</h:h></h:e>
 
-						<h:e><h:tp>William Clarke</h:tp>
-							<h:h>4</h:h></h:e>
-
-						<h:e><h:tp>Thomas Hudd</h:tp>
-							<h:h>4</h:h></h:e>
-
-						<h:e><h:tp>John Spencer</h:tp>
+						<h:e><h:tp>Mary Meadcalfe <roleName>widd.</roleName></h:tp>
 							<h:h>2</h:h></h:e>
 
-						<h:e><h:tp>John Bennitt</h:tp>
-							<h:h>1</h:h></h:e>
+						<h:e><h:tp>John Odall</h:tp>
+							<h:h>4</h:h></h:e>
 
-						<h:e><h:tp>Elezabeth Stratten</h:tp>
-							<h:h>1</h:h></h:e>
-
-						<h:e><h:tp>Thomas Mowden</h:tp>
+						<h:e><h:tp>Christopher Deane for his other house</h:tp>
 							<h:h>3</h:h></h:e>
 
-						<h:e><h:tp>John North</h:tp>
-							<h:h>5</h:h></h:e>
-
-						<h:e><h:tp>James Kirby</h:tp>
+						<h:e><h:tp>Samuell Siggens</h:tp>
 							<h:h>1</h:h></h:e>
 
-						<h:e><h:tp>John Anslow</h:tp>
-							<hi rend="underline"><h:h>2</h:h></hi></h:e>
+						<h:e><h:tp>Adam Smithson</h:tp>
+							<h:h>6</h:h></h:e>
 
-						<h:total>
-							<h:h>133</h:h></h:total>
+						<h:e><h:tp>Richard Honour</h:tp>
+							<h:h>2</h:h></h:e>
+
+						<h:e><h:tp>Thomas Clarke</h:tp>
+							<h:h>2</h:h></h:e>
+
+						<h:e><h:tp>Thomas Harlow</h:tp>
+							<h:h>3</h:h></h:e>
+
+						<h:e><h:tp>Thomas Hutchin</h:tp>
+							<h:h>1</h:h></h:e>
+
+						<h:e><h:tp>William Waltom</h:tp>
+							<h:h>1</h:h></h:e>
+
+						<h:e><h:tp>The <roleName>Widdow</roleName> Page</h:tp>
+							<h:h>1</h:h></h:e>
+
+						<h:e><h:tp>John Daniell</h:tp>
+							<h:h>2</h:h></h:e>
+
+						<h:e><h:tp>Anastasius Lightfoot</h:tp>
+							<h:h>3</h:h></h:e>
+
+						<h:total>The true Number of hearths <h:h>135</h:h> hearths but bate seven
+							&amp; their remains 128 hearths</h:total>
+
+						<h:total>The su<ex>m</ex>me of money comes to <h:tax><h:lbs>£6</h:lbs>
+								<h:sh>8<hi rend="superscript">s</hi></h:sh>
+								<h:den>0<hi rend="superscript">d</hi></h:den></h:tax></h:total>
 					</h:ch>
 
-					<div ana="h_ad">
-						<p><persName ana="h_ad">Thomas Skingel</persName>
-							<roleName>Constable</roleName></p>
-					</div>
+					<h:nc ana="nc-no-distress">
 
-					<h:nc ana="nc-empty">
-
-						<h:e>Empty old hall wheare <h:tp>John Heard</h:tp> was Charged with three
-							noe distress </h:e>
-
-						<p>and 14 harths more which </p>
-
-						<p>stand empty &amp; noe distresse </p>
-
-						<p>to bee found as followeth</p>
-
-						<p>mistaken</p>
-
-						<h:e><h:tp>S<ex>i</ex>r John Bucke</h:tp>
-							<h:h>3</h:h></h:e>
-
-						<h:e><h:tp>John Bitson</h:tp>
-							<h:h>1</h:h></h:e>
-
-						<h:e><h:tp>Cozans Farme</h:tp>
-							<h:h>5</h:h></h:e>
-
-						<h:e><h:tp>Daniell Fordham</h:tp>
-							<h:h>2</h:h></h:e>
-
-						<h:e><h:tp>Richd. Jepps</h:tp>
-							<h:h>2</h:h></h:e>
-
-						<h:e><h:tp>Jo. North</h:tp>
-							<hi rend="underline"><h:h>1</h:h></hi></h:e>
-
-						<h:total>
-							<h:h>14</h:h></h:total>
+						<h:e ana="nc-no-distress">As for <h:tp>Abraham Pond</h:tp> is gone out of
+							the house and theire is noe distress to be had for the seven
+									hearths<supplied><h:h>7</h:h></supplied></h:e>
 					</h:nc>
+
+					<div ana="h_ad">
+						<p><persName ana="h_ad">Thomas Clarke</persName>
+							<roleName>Constable of Thundridge</roleName></p>
+					</div>
 
 				</h:area>
 
 			</h:area>
 
 			<h:area>
-				<head><placeName type="parish">Ware <supplied resp="editor"
-						>E179/248/23</supplied></placeName></head>
+				<head><placeName type="parish">Ware Upland</placeName></head>
+
+				<p><h:taxationDate when="1663-03-25"><supplied resp="editor">Lady Day
+							1663</supplied></h:taxationDate></p>
+
+				<h:ch>
+					<h:e><h:tp><roleName>S<ex>i</ex>r</roleName> Henneage Fetherstone</h:tp>
+						<h:h>16</h:h></h:e>
+
+					<h:e><h:tp><roleName>S<ex>i</ex>r</roleName> John Buck</h:tp>
+						<h:h>14</h:h></h:e>
+
+					<h:e><h:tp>John Hallden</h:tp>
+						<h:h>5</h:h></h:e>
+
+					<h:e><h:tp>Georg Halden</h:tp>
+						<h:h>5</h:h></h:e>
+
+					<h:e><h:tp>John Hale</h:tp>
+						<h:h>1</h:h></h:e>
+
+					<h:e><h:tp>Joseph Isack</h:tp>
+						<h:h>1</h:h></h:e>
+
+					<h:e><h:tp>John Elliott</h:tp>
+						<h:h>2</h:h></h:e>
+
+					<h:e><h:tp>Sarah Rockell</h:tp>
+						<h:h>10</h:h></h:e>
+
+					<h:e><h:tp>John Franklin</h:tp>
+						<h:h>3</h:h></h:e>
+
+					<h:e><h:tp>John Lilly</h:tp>
+						<h:h>2</h:h></h:e>
+
+					<h:e><h:tp>William Randall</h:tp>
+						<h:h>2</h:h></h:e>
+
+					<h:e><h:tp>Thomas Roberts</h:tp>
+						<h:h>3</h:h></h:e>
+
+					<h:e><h:tp>John Mills</h:tp>
+						<h:h>2</h:h></h:e>
+
+					<h:e><h:tp>Robert Clemonson</h:tp>
+						<h:h>2</h:h></h:e>
+
+					<h:e><h:tp>Mary Godfrey</h:tp>
+						<h:h>2</h:h></h:e>
+
+					<h:e><h:tp>Richard Godfrey</h:tp>
+						<h:h>2</h:h></h:e>
+
+					<h:e><h:tp>?Dine Massham</h:tp>
+						<h:h>2</h:h></h:e>
+
+					<h:e><h:tp>John Andrewes</h:tp>
+						<h:h>6</h:h></h:e>
+
+					<h:e><h:tp>Thomas Skingle</h:tp>
+						<h:h>2</h:h></h:e>
+
+					<h:e><h:tp>Robert Wrenn</h:tp>
+						<h:h>1</h:h></h:e>
+
+					<h:e><h:tp>George Stratford</h:tp>
+						<h:h>4</h:h></h:e>
+
+					<h:e><h:tp>William Porter</h:tp>
+						<h:h>2</h:h></h:e>
+
+					<h:e><h:tp>John Heard</h:tp>
+						<h:h>2</h:h></h:e>
+
+					<h:e><h:tp>John Law</h:tp>
+						<h:h>3</h:h></h:e>
+
+					<h:e><h:tp>Henry Budder</h:tp>
+						<h:h>3</h:h></h:e>
+
+					<h:e><h:tp>Mathew Finkell</h:tp>
+						<h:h>4</h:h></h:e>
+
+					<h:e><h:tp>William Poole</h:tp>
+						<h:h>7</h:h></h:e>
+
+					<h:e><h:tp>William Clarke</h:tp>
+						<h:h>4</h:h></h:e>
+
+					<h:e><h:tp>Thomas Hudd</h:tp>
+						<h:h>4</h:h></h:e>
+
+					<h:e><h:tp>John Spencer</h:tp>
+						<h:h>2</h:h></h:e>
+
+					<h:e><h:tp>John Bennitt</h:tp>
+						<h:h>1</h:h></h:e>
+
+					<h:e><h:tp>Elezabeth Stratten</h:tp>
+						<h:h>1</h:h></h:e>
+
+					<h:e><h:tp>Thomas Mowden</h:tp>
+						<h:h>3</h:h></h:e>
+
+					<h:e><h:tp>John North</h:tp>
+						<h:h>5</h:h></h:e>
+
+					<h:e><h:tp>James Kirby</h:tp>
+						<h:h>1</h:h></h:e>
+
+					<h:e><h:tp>John Anslow</h:tp>
+						<hi rend="underline"><h:h>2</h:h></hi></h:e>
+
+					<h:total>
+						<h:h>133</h:h></h:total>
+				</h:ch>
+
+				<div ana="h_ad">
+					<p><persName ana="h_ad">Thomas Skingel</persName>
+						<roleName>Constable</roleName></p>
+				</div>
+
+				<h:nc ana="nc-empty">
+
+					<h:e>Empty old hall wheare <h:tp>John Heard</h:tp> was Charged with three noe
+						distress </h:e>
+
+					<p>and 14 harths more which </p>
+
+					<p>stand empty &amp; noe distresse </p>
+
+					<p>to bee found as followeth</p>
+
+					<p>mistaken</p>
+
+					<h:e><h:tp>S<ex>i</ex>r John Bucke</h:tp>
+						<h:h>3</h:h></h:e>
+
+					<h:e><h:tp>John Bitson</h:tp>
+						<h:h>1</h:h></h:e>
+
+					<h:e><h:tp>Cozans Farme</h:tp>
+						<h:h>5</h:h></h:e>
+
+					<h:e><h:tp>Daniell Fordham</h:tp>
+						<h:h>2</h:h></h:e>
+
+					<h:e><h:tp>Richd. Jepps</h:tp>
+						<h:h>2</h:h></h:e>
+
+					<h:e><h:tp>Jo. North</h:tp>
+						<hi rend="underline"><h:h>1</h:h></hi></h:e>
+
+					<h:total>
+						<h:h>14</h:h></h:total>
+				</h:nc>
+			</h:area>
+
+			<h:area>
+				<head><placeName type="parish">Ware</placeName></head>
 
 				<p><h:taxationDate when="1663-10-24">24 Oct 1663</h:taxationDate></p>
 
@@ -13204,17 +13225,21 @@
 
 
 					<h:total>Wee doe returne fireharths and Stoves } in the Towne of Ware in all }
-							<h:h>729</h:h> and in the Upland accompt <hi rend="underline"
-								><h:h>133</h:h></hi> Some is in all <h:h>862</h:h> Which 862 Harthes
-						and Stoves doe amount to in all <h:tax><h:lbs>£43</h:lbs>
-							<h:sh>02<hi rend="superscript">s</hi></h:sh>
-							<h:den>00</h:den></h:tax> there is alsoe returned those that are unable
-						to pay accordeinge } to the Act in Ware Towne and } <h:tax><h:lbs>£2</h:lbs>
+						729 and in the Upland accompt <hi rend="underline"><h:h>133</h:h></hi>
+						<lb/><supplied><h:h>729</h:h></supplied></h:total>
+					<lb/>
+					<h:total>Some is in all 862 Which 862 Harthes and Stoves doe amount to in all
+								<h:tax><h:lbs>£43</h:lbs>
+							<h:sh>02<hi rend="superscript"
+								>s</hi></h:sh><supplied><h:h>862</h:h></supplied>
+							<h:den>00</h:den></h:tax></h:total>
+					<lb/>
+					<h:total> there is alsoe returned those that are unable to pay accordeinge } to
+						the Act in Ware Towne and } <h:tax><h:lbs>£2</h:lbs>
 							<h:sh>13<hi rend="superscript">s</hi></h:sh>
-							<h:den>00</h:den></h:tax> Upland <h:h>53</h:h> harthes which makes } The
-						whole beinge in all <h:h>915</h:h> harthes</h:total>
-
-
+							<h:den>00</h:den></h:tax> Upland 53 harthes which makes } The whole
+						beinge in all <h:h>915</h:h> harthes
+						<supplied><h:h>53</h:h></supplied></h:total>
 
 					<div ana="h_ad">
 
@@ -13238,7 +13263,7 @@
 
 			<h:area>
 
-				<head><placeName type="hundred">HERTFORD HUNDRED</placeName></head>
+				<head><placeName type="hundred">Hertford hundred</placeName></head>
 
 				<h:area>
 					<head><placeName type="parish"><choice>
@@ -13315,19 +13340,16 @@
 					<h:nc>
 
 						<h:e ana="nc-no-distress">I Returne <h:tp>John Wilson</h:tp> being gon to
-							London for <h:h>1</h:h>
-							<note>written as 'one'</note> fyre hearth &amp; noe distress can be
-							had.</h:e>
+							London for 1 <note>written as 'one'</note> fyre hearth &amp; noe
+							distress can be had.<supplied><h:h>1</h:h></supplied></h:e>
 
 						<h:e ana="nc-no-distress">I Returne <h:tp>John Johnson (otherwise called
-								Brookes)</h:tp> for <h:h>5</h:h>
-							<note>written as 'five'</note> fyre hearthes being removed to Ware &amp;
-							noe distress can be had.</h:e>
+								Brookes)</h:tp> for five fyre hearthes being removed to Ware &amp;
+							noe distress can be had.<supplied><h:h>5</h:h></supplied></h:e>
 
-						<h:e ana="nc-no-distress">I Returne <h:tp>Samuell Allice</h:tp> for
-								<h:h>4</h:h>
-							<note>written as 'foure'</note> fyre hearths dwelling w<ex>i</ex>thin
-							the Liberty of Ware who keeps me off by force</h:e>
+						<h:e ana="nc-no-distress">I Returne <h:tp>Samuell Allice</h:tp> for foure
+							fyre hearths dwelling w<ex>i</ex>thin the Liberty of Ware who keeps me
+							off by force<supplied><h:h>4</h:h></supplied></h:e>
 
 					</h:nc>
 
@@ -13420,8 +13442,8 @@
 						<h:e><h:tp>Nathaniell Hale</h:tp>
 							<h:h>10</h:h></h:e>
 
-						<h:e><hi rend="strikethrough">Willm. Clarke</hi>
-							<hi rend="strikethrough">4</hi></h:e>
+						<h:e><hi rend="strikethrough"><h:tp>Willm. Clarke</h:tp>
+							<h:h>4</h:h></hi></h:e>
 
 						<h:e><h:tp>John Reddall</h:tp>
 							<h:h>6</h:h></h:e>
@@ -13481,7 +13503,7 @@
 					<cb n="col. 1"/>
 
 					<h:ch>
-						<h:e><h:tp><roleName>Mr.</roleName> Joseph Forster Clarke</h:tp>
+						<h:e><h:tp><roleName>Mr.</roleName> Joseph Forster <roleName>Clarke</roleName></h:tp>
 							<h:h>3</h:h></h:e>
 
 						<h:e><h:tp><roleName>Mr.</roleName> Humphery Hall</h:tp>
@@ -15678,18 +15700,18 @@
 						<h:e ana="nc-no-distress"><h:tp>William Marshall</h:tp>
 							<h:h>1</h:h> Chimney fallen doun</h:e>
 
-						<h:e ana="nc-empty">One house emty having <h:h>4</h:h> hearthes no disstress
-							Can be had. </h:e>
+						<h:e ana="nc-empty">One house emty having 4 hearthes no disstress
+							Can be had. <supplied><h:h>4</h:h></supplied> </h:e>
 
-						<h:e ana="nc-empty">One house emty haveing <h:h>2</h:h> hearthes no
-							disstress Can be had</h:e>
+						<h:e ana="nc-empty">One house emty haveing 2 hearthes no
+							disstress Can be had <supplied><h:h>2</h:h></supplied></h:e>
 
-						<h:e ana="nc-empty">One house emty having <h:h>2</h:h> hearthes no disstress
-							Can be had </h:e>
+						<h:e ana="nc-empty">One house emty having 2 hearthes no disstress
+							Can be had <supplied><h:h>2</h:h></supplied></h:e>
 
 						<h:e ana="nc-poor">One house was Returned having 3 fire hearthes A poore
 							Blind Man is in Possession which is maintained by weekely Collection
-							from the Parrish no disstress Can be had </h:e>
+							from the Parrish no disstress Can be had <supplied><h:h>3</h:h></supplied></h:e>
 
 						<h:total><h:h>13</h:h> hearthes where no disstres Can be had</h:total>
 					</h:nc>
@@ -15853,9 +15875,9 @@
 						<p>the 23 November 1663</p>
 
 						<h:e>Wee Returne <h:tp>John Whetbrad</h:tp> for one house with
-								<h:h>2</h:h><note>written as 'too'</note> Fier hath in it and the
+								too Fier hath in it and the
 							Rent of it is 25 pound A year but standeth Emptey and ther is no
-							destress to bee had</h:e>
+							destress to bee had <supplied><h:h>2</h:h></supplied></h:e>
 					</h:nc>
 
 					<div ana="h_ad">
@@ -16368,7 +16390,7 @@
 
 			<h:area>
 
-				<head><placeName type="hundred">CASHIO HUNDRED</placeName></head>
+				<head><placeName type="hundred">Cashio hundred</placeName></head>
 
 				<h:area>
 					<head><placeName type="parish">Sandridge</placeName></head>
@@ -18882,7 +18904,7 @@
 
 			<h:area>
 
-				<head><placeName type="hundred">DACORUM HUNDRED</placeName></head>
+				<head><placeName type="hundred">Dacorum hundred</placeName></head>
 
 				<h:area>
 					<head><placeName type="parish">Tring</placeName></head>
